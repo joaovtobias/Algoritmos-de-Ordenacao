@@ -3,7 +3,7 @@
 #include <stdlib.h>
 #include <time.h>
 
-int bubblesort(int *vet,int n,long long int *comparacoes,long long int *trocas){
+void bubblesort(int *vet,int n,long long int *comparacoes,long long int *trocas){
     int i,j;
     
     for(i = 0; i < n; i++){
@@ -25,7 +25,7 @@ int main() {
 
     int vet[10000]; 
 
-    FILE *instancia = fopen("10000_ordenado_crescente.txt","r");
+    FILE *instancia = fopen("..\\..\\instancias\\10000_ordenado_crescente.txt","r");
     if(instancia != NULL){
         int i = 0;
 
@@ -51,7 +51,7 @@ int main() {
 
     printf("Comparacoes = %d",comparacoes);
 
-    FILE *arquivo = fopen("saida_cresc.txt","a");
+    FILE *arquivo = fopen("saida_cresc.txt","w");
     if (arquivo != NULL) {
         for(int i = 0; i < tam; i++){
             fprintf(arquivo,"%d\n",vet[i]);

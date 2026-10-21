@@ -3,7 +3,7 @@
 #include <stdlib.h>
 #include <time.h>
 
-int bubblesort(int *vet,int n,int *comparacoes,int *trocas){
+void bubblesort(int *vet,int n,int *comparacoes,int *trocas){
     int i,j;
     
     for(i = 0; i < n; i++){
@@ -25,7 +25,7 @@ int main() {
 
     int vet[10000]; 
 
-    FILE *instancia = fopen("10000_aleatorio.txt","r");
+    FILE *instancia = fopen("..\\..\\instancias\\10000_aleatorio.txt","r");
     if(instancia != NULL){
         int i = 0;
 
