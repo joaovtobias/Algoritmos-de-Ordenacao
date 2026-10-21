@@ -14,4 +14,3 @@ bolha.plot(y='Tempo de Execução',x = 'Instancia',kind='bar',xlabel='Instancia'
 plt.yticks([0.00,0.05,0.10,0.15,0.20],ticks)
 plt.savefig('bubblesort_grafico.png', dpi=300, bbox_inches='tight')
 plt.show()
-print(bolha)
