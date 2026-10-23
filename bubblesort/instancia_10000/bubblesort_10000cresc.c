@@ -51,6 +51,8 @@ int main() {
 
     printf("Comparacoes = %d",comparacoes);
 
+    printf("Trocas = %d\n", trocas);
+
     FILE *arquivo = fopen("saida_cresc.txt","w");
     if (arquivo != NULL) {
         for(int i = 0; i < tam; i++){
