@@ -49,7 +49,9 @@ int main() {
     printf("Tempo de execucao: %f segundos\n", tempo_gasto);
 
 
-    printf("Comparacoes = %d",comparacoes);
+    printf("Comparacoes = %d\n",comparacoes);
+
+    printf("Trocas = %d\n", trocas);
 
     FILE *arquivo = fopen("saida_decresc.txt","w");
     if (arquivo != NULL) {
