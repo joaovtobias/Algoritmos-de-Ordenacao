@@ -21,11 +21,14 @@ void bubblesort(int *vet,int n,int *comparacoes,int *trocas){
     }
 }
 
-int main() {
+int main(int argc, char *argv[]) {
 
     int vet[10000]; 
+    if(argc < 2){
+        printf("Forma correta: %s <caminho_relativo_instancias>",argv[0]);
+    }
 
-    FILE *instancia = fopen("..\\..\\instancias\\10000_ordenado_decrescente.txt","r");
+    FILE *instancia = fopen(argv[1],"r");
     if(instancia != NULL){
         int i = 0;
 
