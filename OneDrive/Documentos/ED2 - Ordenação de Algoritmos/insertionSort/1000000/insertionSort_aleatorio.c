@@ -2,6 +2,7 @@
 #include <stdlib.h>
 #include <time.h>
 
+
 void insertionsort(int *vet, int n, long long int *comparacoes,long long int *trocas) {
     int i, j, aux;
     
@@ -66,7 +67,7 @@ int main(int argc, char *argv[]) {
 
     if (arquivo != NULL) {
         for(int i = 0; i < tam; i++){
-            fprintf(arquivo, "%d\n", vet[i]);
+            fprintf(arquivo, "ll%d\n", vet[i]);
         }
 
         fprintf(arquivo, "Comp:%lld Trocas:%lld Tempo:%lf\n", comparacoes, trocas, tempo_gasto);
