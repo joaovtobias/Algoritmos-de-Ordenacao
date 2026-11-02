@@ -2,7 +2,10 @@
 #include <stdlib.h>
 #include <time.h>
 
-void insertionsort(int *vet, int n,long long int *comparacoes,long long int *trocas) {
+
+
+void insertionsort(int *vet, int n, long long int *comparacoes, long long int *trocas) {
+
     int i, j, aux;
     
     for (i = 1; i < n; i++) {
@@ -43,8 +46,11 @@ int main(int argc, char *argv[]) {
     }
     
     int tam = 10000;
+
    long long int comparacoes = 0;
    long long int trocas = 0;
+
+   
   
     clock_t inicio = clock();
     
@@ -73,6 +79,7 @@ int main(int argc, char *argv[]) {
 
         fclose(arquivo);
     }
+    
 
     return 0;
 }
