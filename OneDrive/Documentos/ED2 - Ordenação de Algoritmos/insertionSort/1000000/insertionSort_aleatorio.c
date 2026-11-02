@@ -2,7 +2,7 @@
 #include <stdlib.h>
 #include <time.h>
 
-void insertionsort(int *vet, int n, int *comparacoes, int *trocas) {
+void insertionsort(int *vet, int n, long long int *comparacoes,long long int *trocas) {
     int i, j, aux;
     
     for (i = 1; i < n; i++) {
@@ -43,8 +43,8 @@ int main(int argc, char *argv[]) {
     }
     
     int tam = 1000000;
-    int comparacoes = 0;
-    int trocas = 0;
+    long long int comparacoes = 0;
+    long long int trocas = 0;
   
     clock_t inicio = clock();
     
@@ -57,9 +57,9 @@ int main(int argc, char *argv[]) {
     printf("Tempo de execucao: %f segundos\n", tempo_gasto);
 
 
-    printf("Comparacoes = %d\n", comparacoes);
+    printf("Comparacoes = %lld\n", comparacoes);
 
-    printf("Trocas = %d\n", trocas);
+    printf("Trocas = %lld\n", trocas);
 
 
     FILE *arquivo = fopen("saida_aleatorio.txt","w");
@@ -69,7 +69,7 @@ int main(int argc, char *argv[]) {
             fprintf(arquivo, "%d\n", vet[i]);
         }
 
-        fprintf(arquivo, "Comp:%d Trocas:%d Tempo:%lf\n", comparacoes, trocas, tempo_gasto);
+        fprintf(arquivo, "Comp:%lld Trocas:%lld Tempo:%lf\n", comparacoes, trocas, tempo_gasto);
 
         fclose(arquivo);
     }

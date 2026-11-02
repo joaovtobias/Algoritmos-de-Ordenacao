@@ -18,8 +18,7 @@ void countSort(int *vetor, int n, int exp, long long int *trocas) {
     int output[n]; 
     int count[10] = {0}; 
     int i;
-
-    // Conta a ocorrência dos dígitos
+    
     for (i = 0; i < n; i++) {
         count[(vetor[i] / exp) % 10]++;
     }
