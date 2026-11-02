@@ -48,12 +48,16 @@ int particionarInicio(int *vet, int inicio, int fim, long long int *comparacoes,
 }
 
 void quicksortInicio(int *vet, int inicio, int fim, long long int *comparacoes, long long int *trocas) {
-    if (inicio < fim) {
+    while (inicio < fim) {
         int meio = particionarInicio(vet, inicio, fim, comparacoes, trocas);
 
-        quicksortInicio(vet, inicio, meio - 1, comparacoes, trocas);
-
-        quicksortInicio(vet, meio + 1, fim, comparacoes, trocas);
+        if (meio - inicio < fim - meio) {
+            quicksortInicio(vet, inicio, meio - 1, comparacoes, trocas);
+            inicio = meio + 1;
+        } else {
+            quicksortInicio(vet, meio + 1, fim, comparacoes, trocas);
+            fim = meio - 1;
+        }
     }
 }
 
