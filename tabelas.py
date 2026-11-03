@@ -89,6 +89,14 @@ df_quicksort = pd.DataFrame({
     'Tempo de Execução': [0.001000, 0.145000, 0.133000, 0.187449, 228.214165, 259.266015]
 })
 
+df_bucketsort = pd.DataFrame({
+    'Instancia': [10000, 10000, 10000, 1000000, 1000000, 1000000],
+    'Tipo': ['Aleatorio_10k', 'Crescente_10k', 'Decrescente_10k', 'Aleatorio_1M', 'Crescente_1M', 'Decrescente_1M'],
+    'Comparações': [19991, 9999, 19998, 1999981, 999999, 1999998],
+    'Trocas': [20000, 20000, 20000, 2000000, 2000000, 2000000],
+    'Tempo de Execução': [0.001266, 0.001343, 0.001288, 0.117420, 0.096034, 0.059213]
+})
+
 df_bubblesort.to_csv('bubblesort.csv')
 df_bubblesort_parada.to_csv('bubblesort_parada.csv')
 df_shell_sort.to_csv('shell_sort.csv')
@@ -100,6 +108,7 @@ df_insertion_sort.to_csv('insertion_sort.csv')
 df_selection_sort.to_csv('selection_sort.csv')
 df_ternary_insertion_sort.to_csv('ternary_insertion_sort.csv')
 df_quicksort.to_csv('quicksort.csv')
+df_bucketsort.to_csv('bucketsort.csv')
 
 
 df_radixsort.plot(x='Tipo',y='Tempo de Execução',kind='bar',title='Instancia/Tempo',xlabel='Instancia',ylabel='Tempo em segundos',logy=True)

@@ -12,6 +12,7 @@ df_insertion_sort = pd.read_csv('insertion_sort.csv')
 df_selection_sort = pd.read_csv('selection_sort.csv')
 df_ternary_insertion_sort = pd.read_csv('ternary_insertion_sort.csv')
 df_quicksort = pd.read_csv('quicksort.csv')
+df_bucketsort = pd.read_csv('bucketsort.csv')
 
 
 df_radixsort.plot(x='Tipo',y='Comparações',kind='bar',title='Radixsort',xlabel='Instancia',ylabel='Comparações',logy=True,rot = 45)
@@ -46,5 +47,8 @@ plt.savefig('ternary_insertion_sort_grafico.png', dpi=300, bbox_inches='tight')
 
 df_quicksort.plot(x='Tipo',y='Comparações',kind='bar',title='Quicksort',xlabel='Instancia',ylabel='Comparações',logy=True,rot = 45)
 plt.savefig('quicksort_grafico.png', dpi=300, bbox_inches='tight')
+
+df_bucketsort.plot(x='Tipo',y='Comparações',kind='bar',title='Bucket Sort',xlabel='Instancia',ylabel='Comparações',logy=True,rot = 45)
+plt.savefig('bucketsort_grafico.png', dpi=300, bbox_inches='tight')
 
 
