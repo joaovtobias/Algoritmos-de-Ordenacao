@@ -79,9 +79,7 @@ int main(int argc, char *argv[]) {
     int *vet = (int *)malloc(tam * sizeof(int));
     
     if (vet == NULL) {
-
         printf("Erro de alocacao de memoria.\n");
-
         fclose(instancia);
         return 1;
     }
@@ -108,7 +106,7 @@ int main(int argc, char *argv[]) {
     printf("Comparacoes = %lld\n", comparacoes);
     printf("Trocas = %lld\n", trocas);
 
-    FILE *arquivo = fopen("saida_cresc.txt", "w");
+    FILE *arquivo = fopen("saida_decrescente.txt", "w");
 
     if (arquivo != NULL) {
         for (int k = 0; k < tam; k++) {

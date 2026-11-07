@@ -9,7 +9,29 @@ void trocar(int *a, int *b, long long int *trocas) {
     (*trocas)++;
 }
 
-int particionarInicio(int *vet, int inicio, int fim, long long int *comparacoes, long long int *trocas) {
+
+int medianaDeTres(int *vet, int inicio, int fim, long long int *comparacoes, long long int *trocas) {
+    int meio = inicio + (fim - inicio) / 2;
+
+    
+    (*comparacoes)++;
+    if (vet[inicio] > vet[meio]) trocar(&vet[inicio], &vet[meio], trocas);
+    
+    (*comparacoes)++;
+    if (vet[inicio] > vet[fim]) trocar(&vet[inicio], &vet[fim], trocas);
+    
+    (*comparacoes)++;
+    if (vet[meio] > vet[fim]) trocar(&vet[meio], &vet[fim], trocas);
+
+    
+    trocar(&vet[meio], &vet[inicio], trocas);
+    return inicio;
+}
+
+int particionarMediana(int *vet, int inicio, int fim, long long int *comparacoes, long long int *trocas) {
+  
+    medianaDeTres(vet, inicio, fim, comparacoes, trocas);
+    
     int pivo = vet[inicio];
     int i = inicio + 1;
     int j = fim;
@@ -47,17 +69,13 @@ int particionarInicio(int *vet, int inicio, int fim, long long int *comparacoes,
     return j;
 }
 
-void quicksortInicio(int *vet, int inicio, int fim, long long int *comparacoes, long long int *trocas) {
-    while (inicio < fim) {
-        int meio = particionarInicio(vet, inicio, fim, comparacoes, trocas);
+void quicksortMediana(int *vet, int inicio, int fim, long long int *comparacoes, long long int *trocas) {
+    if (inicio < fim) {
+        int meio = particionarMediana(vet, inicio, fim, comparacoes, trocas);
 
-        if (meio - inicio < fim - meio) {
-            quicksortInicio(vet, inicio, meio - 1, comparacoes, trocas);
-            inicio = meio + 1;
-        } else {
-            quicksortInicio(vet, meio + 1, fim, comparacoes, trocas);
-            fim = meio - 1;
-        }
+        quicksortMediana(vet, inicio, meio - 1, comparacoes, trocas);
+
+        quicksortMediana(vet, meio + 1, fim, comparacoes, trocas);
     }
 }
 
@@ -73,11 +91,8 @@ int main(int argc, char *argv[]) {
         return 1;
     }
 
-
     int tam = 1000000; 
-
     int *vet = (int *)malloc(tam * sizeof(int));
-    
     if (vet == NULL) {
         printf("Erro de alocacao de memoria.\n");
         fclose(instancia);
@@ -96,7 +111,7 @@ int main(int argc, char *argv[]) {
 
     clock_t inicio = clock();
 
-    quicksortInicio(vet, 0, tam - 1, &comparacoes, &trocas);
+    quicksortMediana(vet, 0, tam - 1, &comparacoes, &trocas);
 
     clock_t fim = clock();
 
@@ -106,7 +121,7 @@ int main(int argc, char *argv[]) {
     printf("Comparacoes = %lld\n", comparacoes);
     printf("Trocas = %lld\n", trocas);
 
-    FILE *arquivo = fopen("saida_decresc.txt", "w");
+    FILE *arquivo = fopen("saida_crescente.txt", "w");
 
     if (arquivo != NULL) {
         for (int k = 0; k < tam; k++) {

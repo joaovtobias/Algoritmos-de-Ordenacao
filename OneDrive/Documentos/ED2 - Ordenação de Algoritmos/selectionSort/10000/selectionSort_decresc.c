@@ -6,16 +6,16 @@ void selectionSort(int *vet, int n, long long *comparacoes, long long *trocas) {
     int i, j, min_idx, aux;
     
     for (i = 0; i < n - 1; i++) {
-        min_idx = i; // Assume que o primeiro elemento da parte não ordenada é o menor
+        min_idx = i; 
         
         for (j = i + 1; j < n; j++) {
             (*comparacoes)++;
             if (vet[j] < vet[min_idx]) {
-                min_idx = j; // Atualiza o índice do menor elemento encontrado
+                min_idx = j; 
             }
         }
         
-        // Se encontrou um elemento menor, realiza a troca
+        
         if (min_idx != i) {
             aux = vet[i];
             vet[i] = vet[min_idx];
@@ -25,11 +25,15 @@ void selectionSort(int *vet, int n, long long *comparacoes, long long *trocas) {
     }
 }
 
-int main() {
+int main(int argc, char *argv[]) {
     int vet[10000]; 
 
-    // Caminho para a pasta de instâncias na raiz do projeto
-    FILE *instancia = fopen("..\\..\\instancias_10000\\10000_ordenado_decrescente.txt", "r");
+    if(argc < 2){
+        printf("Forma correta: %s <caminho_relativo_instancias>",argv[0]);
+    }
+
+    FILE *instancia = fopen(argv[1], "r");
+    
     if (instancia != NULL) {
         int i = 0;
         while (i < 10000 && fscanf(instancia, "%d", &vet[i]) == 1) {
